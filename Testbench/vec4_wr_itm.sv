@@ -8,6 +8,7 @@ class vec4_wr_itm extends uvm_sequence_item;
     rand in_type [3:0] in_a;
     rand in_type [3:0] in_b;
     rand logic [1:0] delay;
+    rand bit random_reset;
     logic [3:0] in_tag;
 
     `uvm_object_utils(vec4_wr_itm)
