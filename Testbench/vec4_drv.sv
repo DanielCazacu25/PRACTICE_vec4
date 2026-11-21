@@ -39,16 +39,26 @@ class vec4_drv extends uvm_driver #(vec4_wr_itm);
         
     endtask
 
+    task inf_assignments(vec4_wr_itm itm);
+
+        drv_inf.drv_cb.in_a <= itm.in_a;
+        drv_inf.drv_cb.in_b <= itm.in_b;
+        drv_inf.drv_cb.in_tag <= counter;
+        itm.in_tag = counter;
+        counter++;
+        
+    endtask
+
     task drv_task(vec4_wr_itm itm);
 
         bit [63:0] temp_a, temp_b;
         bit [3:0] temp_tag;
-
+        bit reset_occured = 0;
         if(itm.random_reset == 1) begin
 
             @(drv_inf.drv_cb);
             reset(3);
-
+            reset_occured = 1;
         end
 
         repeat(itm.delay) begin
@@ -63,13 +73,11 @@ class vec4_drv extends uvm_driver #(vec4_wr_itm);
 
         end
 
-        @(drv_inf.drv_cb);
+        if(!reset_occured || itm.delay)
+            @(drv_inf.drv_cb);
         drv_inf.drv_cb.in_valid <= 1'b1;
-        drv_inf.drv_cb.in_a <= itm.in_a;
-        drv_inf.drv_cb.in_b <= itm.in_b;
-        drv_inf.drv_cb.in_tag <= counter;
-        itm.in_tag = counter;
-        counter++;
+        inf_assignments(itm);
+
     endtask
 
     task run_phase(uvm_phase phase);
