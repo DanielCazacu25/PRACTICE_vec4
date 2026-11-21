@@ -19,7 +19,7 @@ endclocking
 
 clocking mon_cb @(posedge clk);
     default input #1step output #1;
-    input out_tag, out_result, in_a, in_b, in_tag, in_valid, out_sat, rst_n;
+    input out_tag, out_result, out_valid, in_a, in_b, in_tag, in_valid, out_sat, rst_n;
 endclocking
 
 modport DRIVER(clocking drv_cb);

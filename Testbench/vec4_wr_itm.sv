@@ -10,6 +10,7 @@ class vec4_wr_itm extends uvm_sequence_item;
     rand logic [1:0] delay;
     rand bit random_reset;
     logic [3:0] in_tag;
+    bit is_reset;
 
     `uvm_object_utils(vec4_wr_itm)
 
