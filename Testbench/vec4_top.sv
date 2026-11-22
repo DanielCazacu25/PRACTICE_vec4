@@ -1,4 +1,5 @@
 import uvm_pkg::*;
+import vec4_pkg::*;
 
 module vec4_top;
 
