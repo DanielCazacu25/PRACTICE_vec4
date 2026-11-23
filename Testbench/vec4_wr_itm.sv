@@ -11,6 +11,7 @@ class vec4_wr_itm extends uvm_sequence_item;
     rand bit random_reset;
     logic [3:0] in_tag;
     bit is_reset;
+    int gap;
 
     `uvm_object_utils(vec4_wr_itm)
 

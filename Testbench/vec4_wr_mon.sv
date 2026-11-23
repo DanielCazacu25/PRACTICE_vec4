@@ -32,6 +32,8 @@ class vec4_wr_mon extends uvm_monitor;
 
         static bit past_rst = 0, current_rst = 0;
 
+        int counter = 0;
+
         forever begin
             
             wr_itm = vec4_wr_itm :: type_id :: create("wr_itm",this);
@@ -43,10 +45,17 @@ class vec4_wr_mon extends uvm_monitor;
             if(past_rst && !current_rst)
                 wr_port.write(wr_itm);
             past_rst = current_rst;
+            if(current_rst && !mon_inf.mon_cb.in_valid) begin
+                counter++;     
+            end
+            if(!current_rst)
+                counter = 0;
             if(current_rst && mon_inf.mon_cb.in_valid) begin
                 wr_itm.in_a = mon_inf.mon_cb.in_a;
                 wr_itm.in_b = mon_inf.mon_cb.in_b;
                 wr_itm.in_tag = mon_inf.mon_cb.in_tag;
+                wr_itm.gap = counter;
+                counter = 0;
                 wr_port.write(wr_itm);
             end
         end

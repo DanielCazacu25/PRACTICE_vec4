@@ -9,7 +9,10 @@ package vec4_pkg;
     `include "vec4_sequence.sv"
     `include "vec4_drv.sv"
     `include "vec4_wr_mon.sv"
+    `include "vec4_wr_cov.sv"
     `include "vec4_rd_mon.sv"
+    `include "vec4_wr_agn.sv"
+    `include "vec4_rd_agn.sv"
     `include "vec4_ref_model.sv"
     `include "vec4_scoreboard.sv"
 
