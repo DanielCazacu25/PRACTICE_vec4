@@ -24,7 +24,7 @@ module vec4_top;
 
         uvm_config_db#(virtual vec4_inf.DRIVER) :: set(null,"*","inf",inf);
         uvm_config_db#(virtual vec4_inf.MONITOR) :: set(null,"*","inf",inf);
-        run_test();
+        run_test("vec4_test");
 
     end
 endmodule

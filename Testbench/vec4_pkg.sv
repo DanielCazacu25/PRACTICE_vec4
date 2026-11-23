@@ -17,5 +17,6 @@ package vec4_pkg;
     `include "vec4_ref_model.sv"
     `include "vec4_scoreboard.sv"
     `include "vec4_env.sv"
+    `include "vec4_test.sv"
 
 endpackage
