@@ -7,6 +7,7 @@ package vec4_pkg;
     `include "vec4_rd_itm.sv"
     `include "vec4_sequencer.sv"
     `include "vec4_sequence.sv"
+    `include "vec4_sat_sequence.sv"
     `include "vec4_drv.sv"
     `include "vec4_wr_mon.sv"
     `include "vec4_wr_cov.sv"
@@ -18,5 +19,6 @@ package vec4_pkg;
     `include "vec4_scoreboard.sv"
     `include "vec4_env.sv"
     `include "vec4_test.sv"
+    `include "vec4_sat_test.sv"
 
 endpackage

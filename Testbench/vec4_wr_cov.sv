@@ -3,7 +3,7 @@ class vec4_wr_cov extends uvm_subscriber#(vec4_wr_itm);
 
     `uvm_component_utils(vec4_wr_cov)
 
-    short i;
+    shortint i;
 
     covergroup wr_cg with function sample(bit signed [15:0]a_i,
                                           bit signed [15:0]b_i,
